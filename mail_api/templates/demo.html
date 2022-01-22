@@ -65,11 +65,7 @@
 			grid-template-rows: repeat(auto-fit, 1fr);
 		}
 
-		.rows.odd > :nth-child(odd) {
-			background: hsl(0, 0%, 50%, 25%);
-		}
-		
-		.rows.even > :nth-child(even) {
+		.row_highlight {
 			background: hsl(0, 0%, 50%, 25%);
 		}
 	</style>
@@ -84,25 +80,21 @@
 			<p>This E-Mail is to cofirm your registration details for NuTopia.</p>
 			<p>Below are the details you had provided. For any changes, please send an email to <a href="mailto:info@nutopia.in">info@nutopia.in</a>. Make sure to mention your Name(s) and Event</p>
 			<table>
-				<tbody class="rows odd">
+				<tbody class="rows">
 					<tr>
-						<th>
-							Field
-						</th>
-						<th>
-							Value
-						</th>
+						<th>Field</th>
+						<th>Value</th>
 					</tr>
 					<tr>
 						<td>Event</td>
 						<!-- If AoV join with platform-->
 						<td><p>{Selected Event} {platform}</p></td>
 					</tr>
-					<tr>
+					<tr class="row_highlight">
 						<td>Participants</td>
-						<td class="rows even">
+						<td class="rows">
 							<p>{Name}</p>
-							<p>{Team Member 1}</p>
+							<p class="row_highlight">{Team Member 1}</p>
 							<p>{Team Member 2}</p>
 						</td>
 					</tr>
