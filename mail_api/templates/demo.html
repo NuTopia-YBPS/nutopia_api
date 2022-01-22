@@ -87,15 +87,17 @@
 					</tr>
 					<tr>
 						<td>Event</td>
-						<!-- If AoV join with platform-->
-						<td><p>{Selected Event} {platform}</p></td>
+						<td>
+							<p>{{event}} {% if event == "Arena of Valor" %} {{platform}} {% endif %}</p>
+						</td>
+
 					</tr>
 					<tr class="row_highlight">
 						<td>Participants</td>
 						<td class="rows">
-							<p>{Name}</p>
-							<p class="row_highlight">{Team Member 1}</p>
-							<p>{Team Member 2}</p>
+							{% for name in participants %}
+								<p class="{% cycle 'row_normal' 'row_highlight' %}">{{name}}</p>
+							{% endfor %}
 						</td>
 					</tr>
 				</tbody>

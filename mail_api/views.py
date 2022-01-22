@@ -20,12 +20,17 @@ def mail(request):
 def reply(request):
 
     # Setting up the content for the mail
-    subject, from_email, to = 'hello', 'info@nutopia.in', ['marudhu2021@gmail.com', "rishimenonx@gmail.com"]
+    subject, from_email, to = 'registered successfully!', 'info@nutopia.in', ['marudhu2021@gmail.com', "rishimenonx@gmail.com"]
     text_content = 'This is an important message.'
-    html_content = ""
+
+    # context data
+    participants = ['rishi', 'marudhu', 'sabs', 'jock', 'jonny']
+    event = "truth or debug"
+    platform = "mobile"
+    context = {'participants': participants, "event": event, "platform": platform}
 
     # getting the html generated
-    template = render(request, 'msg.html')
+    template = render(request, 'demo.html', context=context)
     content = template.content.decode()
 
     # Creating and sending the mail
@@ -39,4 +44,9 @@ def reply(request):
 
 def test(request):
 
-    return render(request, 'mock.html', context={'val': request.GET['val']})
+    # context data
+    participants = ['rishi', 'marudhu', 'sabs', 'jock', 'jonny']
+    event = "truth or debug"
+    platform = "mobile"
+
+    return render(request, 'demo.html', context={'participants': participants, "event": event, "platform": platform})
