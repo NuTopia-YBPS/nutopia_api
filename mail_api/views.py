@@ -20,7 +20,7 @@ def mail(request):
 def reply(request):
 
     # Setting up the content for the mail
-    subject, from_email, to = 'registered successfully!', 'info@nutopia.in', ['marudhu2021@gmail.com', "rishimenonx@gmail.com"]
+    subject, from_email, to = 'registered successfully!', '"NuTopia" <info@nutopia.in>', ['marudhu2021@gmail.com', "rishimenonx@gmail.com"]
     text_content = 'This is an important message.'
 
     # context data
