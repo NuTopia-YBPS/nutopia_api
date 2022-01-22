@@ -20,19 +20,23 @@ def mail(request):
 def reply(request):
 
     # Setting up the content for the mail
-    subject, from_email, to = 'hello', 'info@nutopia.in', 'rishimenonx@gmail.com'
+    subject, from_email, to = 'hello', 'info@nutopia.in', ['marudhu2021@gmail.com', "rishimenonx@gmail.com"]
     text_content = 'This is an important message.'
     html_content = ""
 
     # getting the html generated
     template = render(request, 'msg.html')
     content = template.content.decode()
-    print(content)
 
     # Creating and sending the mail
-    msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+    msg = EmailMultiAlternatives(subject, text_content, from_email, to)
     msg.attach_alternative(content, "text/html")
     msg.send()
 
     # Sending the response
     return response.JsonResponse({'status': 'success'})
+
+
+def test(request):
+
+    return render(request, 'mock.html', context={'val': request.GET['val']})
