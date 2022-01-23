@@ -21,7 +21,7 @@ def mail(request):
 
 
 @api_view(['POST'])
-@permission_classes((permissions.AllowAny,))
+@permission_classes([permissions.IsAuthenticated])
 def reply(request):
 
     # making sure to respond to post requests alone
