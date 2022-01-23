@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>NuTopia Confirmation Email</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		.email_body {
+			padding: 5% 10%;
+			margin: 0;
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			color: white;
+		}
+
+		.email_header {
+			background-color: #00cc22;
+			padding: 20px 20px 10px 20px;
+		}
+
+		.email_header a > img {
+			width: min(max(5rem, 50%), 20rem);
+			height: auto;
+		}
+
+		.email_content {
+			background: #003c47;
+			padding: 2ch;
+		}
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+		}
+
+		th, td {
+			padding: 1ch;
+			text-align: center;
+		}
+		
+		th {
+			background: #00cc22;
+		}
+		
+		td {
+			background: hsl(0, 0%, 0%, 50%);
+			padding: 0;
+		}
+
+		td > p {
+			padding: 1ch;
+			margin: 0;
+		}
+
+		td.rows {
+			display: grid;
+			grid-template-rows: repeat(auto-fit, 1fr);
+		}
+
+		.row_highlight {
+			background: hsl(0, 0%, 50%, 25%);
+		}
+
+		.email_footer {
+			padding: 5ch;
+			color: black;
+			text-align: center;
+			font-size: 0.9rem;
+		}
+
+		.links {
+			display: grid;
+			width: 75%;
+			margin: 0 auto;
+			gap: 20px;
+			justify-content: center;
+			grid-template-columns: repeat(auto-fit, 60px);
+		}
+
+		.address {
+			font-size: 0.85em;
+		}
+
+		.link {
+			display: grid;
+			aspect-ratio: 1;
+			place-items: center;
+			margin: 0;
+			padding: 0;
+		}
+
+		.icon_link {
+			width: 40px;
+			height: 40px;
+			filter: saturate(0) brightness(10) brightness(0.5);
+		}
+
+		.icon_link:hover {
+			filter: saturate(0) brightness(10) brightness(0.6);
+		}
+
+		.icon_link > img {
+			width: 40px;
+			height: 40px;
+		}
+	</style>
+</head>
+<body class="email_body">
+	<div>
+		<header class="email_header">
+			<a href="https://nutopia.in"><img src="https://firebasestorage.googleapis.com/v0/b/nutopia-307e4.appspot.com/o/email-assets%2Fnutopia-horizontal.png?alt=media&token=d792df57-14f0-4448-83a7-9a31fffc53f6" /></a>
+		</header>
+		<div class="email_content">
+			<h2>Thank You For Registering For NuTopia!</h2>
+			<p>This E-Mail is to confirm your registration details for NuTopia.</p>
+			<p>Below are the details you had provided. For any changes, please send an email to <a href="mailto:info@nutopia.in" style="color: #00cc22;">info@nutopia.in</a>. Make sure to mention your Name(s) and Event</p>
+			<table>
+				<tbody class="rows">
+					<tr>
+						<th>Field</th>
+						<th>Value</th>
+					</tr>
+					<tr>
+						<td>Event</td>
+						<td>
+							<p>{{event}}</p>
+						</td>
+
+					</tr>
+					<tr class="row_highlight">
+						<td>Participants</td>
+						<td class="rows">
+							{% for participant in participants %}
+								<p class="{% cycle 'row_normal' 'row_highlight' %}">{{participant.name}} {{participant.grade}}</p>
+							{% endfor %}
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="email_footer">
+		<div class="links">
+			<p class="link">
+				<a href="https://nutopia.in" class="icon_link"><img src="https://firebasestorage.googleapis.com/v0/b/nutopia-307e4.appspot.com/o/email-assets%2Fnu-square.png?alt=media&token=bb190de1-7e16-4319-9205-22d383b2b57b" /></a>
+				Website
+			</p>
+			<p class="link">
+				<a href="https://nutopia.in" class="icon_link filter_2"><img src="https://firebasestorage.googleapis.com/v0/b/nutopia-307e4.appspot.com/o/email-assets%2Ffb_logo.png?alt=media&token=ac998233-c94e-4dc7-a028-5e0cc0b03dbb" /></a>
+				FaceBook
+			</p>
+			<p class="link">
+				<a href="https://nutopia.in" class="icon_link"><img src="https://firebasestorage.googleapis.com/v0/b/nutopia-307e4.appspot.com/o/email-assets%2Fig_logo.png?alt=media&token=813105d6-da10-41f3-b391-557fa43c5352" /></a>
+				Instagram
+			</p>
+			<p class="link">
+				<a href="https://nutopia.in" class="icon_link filter_2"><img src="https://firebasestorage.googleapis.com/v0/b/nutopia-307e4.appspot.com/o/email-assets%2Fyt_logo.png?alt=media&token=c8d25c89-a12f-4a50-8e07-1c18e97c0a8f" /></a>
+				YouTube
+			</p>
+		</div>
+		<p class="address">
+			Yuvabharathi Public School,<br/>
+			17/1, Yuva Enclave, Kanuvai - Thudiyalur Road,<br/>
+			Somayampalayam Post, Kanuvai,<br/>
+			Coimbatore, Tamil Nadu 641108, India
+		</p>
+		<p>&copy; <a href="https://yuvabharathi.in" style="color: black">Yuvabharathi Public School</a> 2022. All Rights Reserved.</p>
+	</div>
+</body>
+</html>
