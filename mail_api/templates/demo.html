@@ -88,15 +88,15 @@
 					<tr>
 						<td>Event</td>
 						<td>
-							<p>{{event}} {% if event == "Arena of Valor" %} {{platform}} {% endif %}</p>
+							<p>{{event}}</p>
 						</td>
 
 					</tr>
 					<tr class="row_highlight">
 						<td>Participants</td>
 						<td class="rows">
-							{% for name in participants %}
-								<p class="{% cycle 'row_normal' 'row_highlight' %}">{{name}}</p>
+							{% for participant in participants %}
+								<p class="{% cycle 'row_normal' 'row_highlight' %}">{{participant.name}} {{participant.grade}}</p>
 							{% endfor %}
 						</td>
 					</tr>

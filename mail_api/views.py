@@ -1,6 +1,9 @@
-from django.shortcuts import render
+import json
 from django.http import response
+from django.shortcuts import render
+from rest_framework import permissions
 from django.core.mail import send_mail, EmailMultiAlternatives
+from rest_framework.decorators import api_view, permission_classes
 
 
 # Create your views here.
@@ -17,26 +20,34 @@ def mail(request):
     return response.JsonResponse({'status': 'success'})
 
 
+@api_view(['POST'])
+@permission_classes((permissions.AllowAny,))
 def reply(request):
 
-    # Setting up the content for the mail
-    subject, from_email, to = 'registered successfully!', '"NuTopia" <info@nutopia.in>', ['marudhu2021@gmail.com', "rishimenonx@gmail.com"]
-    text_content = 'This is an important message.'
+    # making sure to respond to post requests alone
+    if request.method == "POST":
 
-    # context data
-    participants = ['rishi', 'marudhu', 'sabs', 'jock', 'jonny']
-    event = "truth or debug"
-    platform = "mobile"
-    context = {'participants': participants, "event": event, "platform": platform}
+        serialized = request.data
+        print(serialized)
 
-    # getting the html generated
-    template = render(request, 'demo.html', context=context)
-    content = template.content.decode()
+        # Setting up the content for the mail
+        to = serialized['recipients']
+        subject = 'successfully registered!'
+        from_email = '"NuTopia" <info@nutopia.in>'
+        text_content = 'successfully registered to the event'
 
-    # Creating and sending the mail
-    msg = EmailMultiAlternatives(subject, text_content, from_email, to)
-    msg.attach_alternative(content, "text/html")
-    msg.send()
+        # context data
+        context = {'participants': serialized['participants'],
+                   "event": serialized['event']}
+
+        # getting the html generated
+        template = render(request, 'demo.html', context=context)
+        content = template.content.decode()
+
+        # Creating and sending the mail
+        msg = EmailMultiAlternatives(subject, text_content, from_email, to)
+        msg.attach_alternative(content, "text/html")
+        msg.send()
 
     # Sending the response
     return response.JsonResponse({'status': 'success'})
