@@ -26,7 +26,7 @@ def reply(request):
                    "event": serialized['event']}
 
         # getting the html generated
-        template = render(request, 'demo.html', context=context)
+        template = render(request, 'main.html', context=context)
         content = template.content.decode()
 
         # Creating and sending the mail
