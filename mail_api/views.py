@@ -14,7 +14,6 @@ def reply(request):
     if request.method == "POST":
 
         serialized = request.data
-        print(serialized)
 
         # Setting up the content for the mail
         to = serialized['recipients']
