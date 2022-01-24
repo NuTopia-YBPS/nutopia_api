@@ -2,22 +2,8 @@ import json
 from django.http import response
 from django.shortcuts import render
 from rest_framework import permissions
-from django.core.mail import send_mail, EmailMultiAlternatives
+from django.core.mail import EmailMultiAlternatives
 from rest_framework.decorators import api_view, permission_classes
-
-
-# Create your views here.
-def index(request):
-    msg = {'status': "API UP!",
-           'msg': "have a good day!"}
-    return response.JsonResponse(msg)
-
-
-def mail(request):
-    reciever = "marudhu2021@gmail.com"
-    print("Sending mail")
-    send_mail("Testing", "this is a test mail", "info@nutopia.in", [reciever])
-    return response.JsonResponse({'status': 'success'})
 
 
 @api_view(['POST'])
@@ -51,13 +37,3 @@ def reply(request):
 
     # Sending the response
     return response.JsonResponse({'status': 'success'})
-
-
-def test(request):
-
-    # context data
-    participants = ['rishi', 'marudhu', 'sabs', 'jock', 'jonny']
-    event = "truth or debug"
-    platform = "mobile"
-
-    return render(request, 'demo.html', context={'participants': participants, "event": event, "platform": platform})
