@@ -1,5 +1,5 @@
 """
-WSGI config for mailer_api project.
+WSGI config for nutopia_api project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mailer_api.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'nutopia_api.settings')
 
 application = get_wsgi_application()
