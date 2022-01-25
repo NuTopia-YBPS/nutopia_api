@@ -155,4 +155,4 @@ EMAIL_USE_SSL = True
 EMAIL_USE_TLS = False
 
 # Allowing queries through other sites (for js queries)
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_ALL_ORIGINS = True

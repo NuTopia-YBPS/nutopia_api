@@ -52,7 +52,7 @@
 			margin: 0;
 		}
 
-		td.rows {
+		.rows {
 			display: grid;
 			grid-template-rows: repeat(auto-fit, 1fr);
 		}
@@ -69,12 +69,9 @@
 		}
 
 		.links {
-			display: grid;
 			width: 75%;
 			margin: 0 auto;
-			gap: 20px;
 			justify-content: center;
-			grid-template-columns: repeat(auto-fit, 60px);
 		}
 
 		.address {
@@ -82,26 +79,19 @@
 		}
 
 		.link {
-			display: grid;
-			aspect-ratio: 1;
-			place-items: center;
 			margin: 0;
 			padding: 0;
+			background: transparent;
 		}
 
 		.icon_link {
 			width: 40px;
 			height: 40px;
-			filter: saturate(0) brightness(10) brightness(0.5);
-		}
-
-		.icon_link:hover {
-			filter: saturate(0) brightness(10) brightness(0.6);
 		}
 
 		.icon_link > img {
-			width: 40px;
-			height: 40px;
+			width: 38px;
+			height: 38px;
 		}
 	</style>
 </head>
@@ -115,7 +105,7 @@
 			<p>This E-Mail is to confirm your registration details for NuTopia.</p>
 			<p>Below are the details you had provided. For any changes, please send an email to <a href="mailto:info@nutopia.in" style="color: #00cc22;">info@nutopia.in</a>. Make sure to mention your Name(s) and Event</p>
 			<table>
-				<tbody class="rows">
+				<tbody>
 					<tr>
 						<th>Field</th>
 						<th>Value</th>
@@ -140,24 +130,36 @@
 		</div>
 	</div>
 	<div class="email_footer">
-		<div class="links">
-			<p class="link">
-				<a href="https://nutopia.in" class="icon_link"><img src="https://firebasestorage.googleapis.com/v0/b/nutopia-307e4.appspot.com/o/email-assets%2Fnu-square.png?alt=media&token=bb190de1-7e16-4319-9205-22d383b2b57b" /></a>
-				Website
-			</p>
-			<p class="link">
-				<a href="https://nutopia.in" class="icon_link filter_2"><img src="https://firebasestorage.googleapis.com/v0/b/nutopia-307e4.appspot.com/o/email-assets%2Ffb_logo.png?alt=media&token=ac998233-c94e-4dc7-a028-5e0cc0b03dbb" /></a>
-				FaceBook
-			</p>
-			<p class="link">
-				<a href="https://nutopia.in" class="icon_link"><img src="https://firebasestorage.googleapis.com/v0/b/nutopia-307e4.appspot.com/o/email-assets%2Fig_logo.png?alt=media&token=813105d6-da10-41f3-b391-557fa43c5352" /></a>
-				Instagram
-			</p>
-			<p class="link">
-				<a href="https://nutopia.in" class="icon_link filter_2"><img src="https://firebasestorage.googleapis.com/v0/b/nutopia-307e4.appspot.com/o/email-assets%2Fyt_logo.png?alt=media&token=c8d25c89-a12f-4a50-8e07-1c18e97c0a8f" /></a>
-				YouTube
-			</p>
-		</div>
+		<table class="links">
+			<tr>
+				<td class="link">
+					<a href="https://nutopia.in" class="icon_link"><img style="background: #00cc22; border-radius: 4px;" src="https://firebasestorage.googleapis.com/v0/b/nutopia-307e4.appspot.com/o/email-assets%2Fnu-square.png?alt=media&token=bb190de1-7e16-4319-9205-22d383b2b57b" /></a>
+				</td>
+				<td class="link">
+					<a href="https://www.facebook.com/NuTopia-106903048559461/?ref=page_internal" class="icon_link filter_2"><img src="https://firebasestorage.googleapis.com/v0/b/nutopia-307e4.appspot.com/o/email-assets%2Ffb_logo.png?alt=media&token=ac998233-c94e-4dc7-a028-5e0cc0b03dbb" /></a>
+				</td>
+				<td class="link">
+					<a href="https://www.instagram.com/nutopia_ybps/" class="icon_link"><img src="https://firebasestorage.googleapis.com/v0/b/nutopia-307e4.appspot.com/o/email-assets%2Fig_logo.png?alt=media&token=813105d6-da10-41f3-b391-557fa43c5352" /></a>
+				</td>
+				<td class="link">
+					<a href="https://www.youtube.com/channel/UC6gMtIVvbPDfVsR4e1Knx9A" class="icon_link filter_2"><img src="https://firebasestorage.googleapis.com/v0/b/nutopia-307e4.appspot.com/o/email-assets%2Fyt_logo.png?alt=media&token=c8d25c89-a12f-4a50-8e07-1c18e97c0a8f" /></a>
+				</td>
+			</tr>
+			<tr>
+				<td class="link">
+					Website
+				</td>
+				<td class="link">
+					FaceBook
+				</td>
+				<td class="link">
+					Instagram
+				</td>
+				<td class="link">
+					YouTube
+				</td>
+			</tr>
+		</table>
 		<p class="address">
 			Yuvabharathi Public School,<br/>
 			17/1, Yuva Enclave, Kanuvai - Thudiyalur Road,<br/>
