@@ -1,0 +1,1 @@
+web: gunicorn nutopia_api.wsgi
