@@ -3,5 +3,5 @@ from . import views
 
 
 urlpatterns = [
-    path('reply', views.reply, name='reply'),
+    path('register', views.reply, name='reply'),
 ]
