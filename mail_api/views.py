@@ -17,9 +17,9 @@ def reply(request):
 
         # Setting up the content for the mail
         to = serialized['recipients']
-        subject = 'successfully registered!'
+        subject = 'Registration Was Successful!'
         from_email = '"NuTopia" <info@nutopia.in>'
-        text_content = 'successfully registered to the event'
+        text_content = 'Thank You! Your Registration Was Successful!'
 
         # context data
         context = {'participants': serialized['participants'],
