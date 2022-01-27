@@ -58,7 +58,7 @@
 		}
 
 		.row_highlight {
-			background: hsl(0, 0%, 50%, 25%);
+			background: hsl(0, 0%, 50%, 50%);
 		}
 
 		.email_footer {
@@ -117,11 +117,19 @@
 						</td>
 
 					</tr>
-					<tr class="row_highlight">
+					{% if isTeam %} 
+						<tr class="row_highlight">
+							<td>Team Name</td>
+							<td>
+								<p>{{teamName}}</p>
+							</td>
+						</tr>
+					{% endif %}
+					<tr class="{% if not isTeam %} row_highlight {% endif %}">
 						<td>Participants</td>
 						<td class="rows">
 							{% for participant in participants %}
-								<p class="{% cycle 'row_normal' 'row_highlight' %}">{{participant.name}} {{participant.grade}}</p>
+								<p class="{% cycle 'row_normal' 'row_highlight' %}">{{participant.name}} - {{participant.grade}}</p>
 							{% endfor %}
 						</td>
 					</tr>

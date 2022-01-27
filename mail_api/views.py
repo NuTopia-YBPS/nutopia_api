@@ -22,8 +22,15 @@ def reply(request):
         text_content = 'Thank You! Your Registration Was Successful!'
 
         # context data
-        context = {'participants': serialized['participants'],
-                   "event": serialized['event']}
+        context = {'isTeam': serialized['isTeam'],
+                   'participants': serialized['participants'],
+                   'event': serialized['event']}
+        
+        if context['isTeam'] == True:
+            context['teamName'] = serialized['teamName']
+        else:
+            context['teamName'] = None
+
 
         # getting the html generated
         template = render(request, 'main.html', context=context)
